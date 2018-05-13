@@ -1,0 +1,93 @@
+<script>
+    function imageType(type) {
+        localStorage.setItem("type", type);
+        console.log("Type set to : " + type);
+    }
+</script>
+<script type="text/javascript" src="{{ url_for('static', filename='Submit.js') }}"></script>
+
+
+
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <div id="submitModal" class="modal-content">
+            <div class="modal-header">
+                <button style="float:right;" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <h4 id="result" class="modal-title">Submit you recipe here!</h4>
+            </div>
+            <div class="modal-body">
+
+
+                <form id="SubmitForm" class="form-horizontal col-sm-offset-2 col-sm-8" method="POST" role="form" action="http://localhost:8081/api/v1/submit">
+                    <fieldset class="withBorder">
+                        <legend id="result" class="registrationForm"><p>Fill in the required fields</p></legend>
+                        <div id ="title"class="form-group has-feedback">
+                            <label for='Title'>Title</label>
+                            <div class="input-group">
+                                <span class='input-group-addon'><i ></i></span>
+                                <input name="title" type='text' class="form-control" placeholder="Title of the image"
+                                       data-minlength="5" required>
+                            </div>
+                            <span class="glyphicon form-contol-feedback" aria-hidden="true"></span>
+                            <div class="help-block with-errors"></div>
+                        </div>
+
+                        <div id ="title" class="form-group has-feedback">
+                            <label for="Category">Category</label>
+                            <select name="category" class="form-control" id="category" required>
+                                <option  value="inBook">From the Book</option>
+                                <option  value="Reviewer">Submitting</option>
+                            </select>
+                           
+                            <span class="glyphicon form-contol-feedback" aria-hidden="true"></span>
+                            <div class="help-block with-errors"></div>
+                        </div>
+
+                        <div id ="title" class="form-group has-feedback">
+                            <label for='URL'>URL</label>
+                            <div class="input-group">
+                                <span class='input-group-addon'><i></i></span>
+                                <input name="path" type='text' class="form-control" placeholder="Path to image"
+                                       data-minlength="3" required>
+                            </div>
+                            <span class="glyphicon form-contol-feedback" aria-hidden="true"></span>
+                            <div class="help-block with-errors"></div>
+                        </div>
+
+                        <button  id="Submit"  type="submit" class="btn btn-primary">Submit</button>
+                    </fieldset>
+                </form>
+
+            </div>
+            <div class="modal-footer">                
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="container" style="padding-bottom: 100px">
+    <div class="row">
+        <nav id="rolling-nav" style="float:left; margin-left: -30px; padding-top: 5px">
+            <ul class="col-ms-6">
+                <li class="col-ms-2"><a href="{{ url_for('main_page') }}" data-clone="All Recepies" onClick="imageType('all')">All Recepies</a></li>
+                <li class="col-ms-2"><a href="{{ url_for('inBook') }}" data-clone="Original" onClick="imageType('inBook')">In the book</a></li>
+                <li class="col-ms-2"><a href="{{ url_for('submitted') }}" data-clone="New Ones" onClick="imageType('submitted')">Submitted</a></li>
+                <li class="col-ms-2"><a data-toggle="modal" data-target="#myModal" data-clone="Submit new" >Upload</a></li>
+            </ul>
+        </nav>
+
+        <nav id="rolling-nav" style="float:right; margin-top: -50px; margin-right:-40px">
+            <ul class="col-ms-4" style="float:right">
+                <li id='login' class="col-ms-2"><a href="{{ url_for('login') }}" data-clone="Log in" onClick="imageType(1)">Log in</a></li>
+                <li id='signup' class="col-ms-2"><a href="{{ url_for('signup') }}" data-clone="Sign up" onClick="imageType(0)" >Sign up</a></li>
+                <li id='logout' class="col-ms-2"><a href="{{ url_for('main_page') }}" data-clone="Sign out" onClick="logIn('logout')">Logout</a></li>
+                <li id='account' class="col-ms-2"><a href="{{ url_for('profile') }}" data-clone="Profile" onClick="imageType(2)" >Account</a></li>
+            </ul>
+            <script>
+            </script>
+        </nav>
+    </div>
+</div>

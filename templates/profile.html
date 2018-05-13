@@ -1,0 +1,55 @@
+
+<script type="text/javascript" src="{{ url_for('static', filename='profile.js') }}"></script>
+<div class="container">
+    <div id="logInForm" class="row" id="thumbsContainer">
+        <div class="col-lg-6 col-md-8" id="thumb">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th id="r0c1">Username</th>
+                        <th id="r0c2">Password</th>
+                        <th id="r0c3">E_mail</th>
+                        <th id="r0c5">Purpose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td id="r1c1"></td>
+                        <td id="r1c2"></td>
+                        <td id="r1c3"></td>
+                        <td>
+                            <select name="purpose" class="form-control" id="purpose" required>
+                                <option value="Contributer">Contributer</option>
+                                <option value="Reviewer">Reviewer</option>
+                            </select>
+                        </td>
+                        <td id="r1c4!"><button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#deleteModal"><span class="glyphicons glyphicons-user-ban"></span>Delete Account</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div id="deleteModal" class="modal fade" role="dialog">
+    < div class="modal-dialog" >
+    <div id="logInForm" class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Confirm User Delete</h4>
+        </div>
+        <div class="modal-body">
+            <p >Are you sure you want to delete the user?</p>
+        </div>
+        <div class="modal-footer">
+            
+                    <button type="button" class="btn btn-default" data-dismiss="modal" style="float:left">Cancel</button>
+                    <button  type="button" class="btn btn-danger" data-dismiss="modal" id="delete_yes">Yes, Delete</button>
+                
+        </div>
+    </div>
+</div>
+
+
+
+
+

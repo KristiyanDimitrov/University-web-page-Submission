@@ -1,0 +1,185 @@
+
+.site-title {
+    text-align: center;
+    
+}
+
+#recepie {
+    border-style: inset;
+    color: black;
+    opacity: 2;
+}
+
+#signup {
+    position:relative;
+    font-size: 15px;
+    float:right;
+
+}
+#r1c1, #r1c2, #r1c3 {
+    font-size: 18px;
+    color: black;
+}
+
+.modal-title {
+    text-align: center;
+    font-size: 30px;
+    color: orangered;
+    font-weight: bold;
+}
+#images, #signUpForm, #logInForm, #submitModal {
+    background-image: url("back_cover.jpg");
+    background-size: cover;
+    border-style: outset;
+    border-radius: 8px;
+    border-color: black;
+    border: 2px solid #a94442 !important;
+}
+#settingsForm {
+    background-image: url("back_cover.jpg");
+    background-size: cover;
+    border-style: outset;
+    border-radius: 8px;
+}
+body {
+    background-image: url("Front Cover.jpg");
+    background-size: cover;
+    font-family: Nosifer;
+}
+
+.centered-form {
+    margin-top: 60px;
+}
+
+.centered-form .panel {
+        background: rgba(280, 280, 280, 0.8);
+        box-shadow: rgba(0, 0, 0, 0.3) 20px 20px 20px;
+    }
+
+footer {
+    position: static;
+}
+
+
+#frame {
+    max-width: 100%;
+    max-height: 100%;
+    background-image: url("images.jpg");
+}
+
+
+
+#rolling-nav {
+    font: normal 12px 'Trebuchet MS',Trebuchet,Arial,Sans-Serif;
+    color: white;
+    text-transform: uppercase;
+    width: 650px; 
+    margin: 0px auto;
+}
+
+#rolling-nav ul {
+    height: 50px;
+    margin: 0px 0px;
+    padding: 0px 0px;
+    overflow: hidden;
+}
+
+#rolling-nav li {
+    float: left;
+    display: inline;
+    list-style: none;
+    margin: 0px 0px;
+    padding: 0px 0px;
+}
+
+#rolling-nav a,
+#rolling-nav a:before {
+    display: block;
+    margin: 0px 0px;
+    padding: 0px 30px;
+    line-height: 50px;
+    color: white;
+    text-decoration: none;
+    background-color: #900;
+    background-image: -webkit-linear-gradient(top, #900 0%, #6A0808 50%, #620303 50%, #6A0808 100%);
+    background-image: -moz-linear-gradient(top, #900 0%, #6A0808 50%, #620303 50%, #6A0808 100%);
+    background-image: -ms-linear-gradient(top, #900 0%, #6A0808 50%, #620303 50%, #6A0808 100%);
+    background-image: -o-linear-gradient(top, #900 0%, #6A0808 50%, #620303 50%, #6A0808 100%);
+    background-image: linear-gradient(top, #900 0%, #6A0808 50%, #620303 50%, #6A0808 100%);
+    -webkit-box-shadow: inset 0px 1px 0px rgba(255,255,255,0.1);
+    -moz-box-shadow: inset 0px 1px 0px rgba(255,255,255,0.1);
+    box-shadow: inset 0px 1px 0px rgba(255,255,255,0.1);
+    position: relative;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+#rolling-nav a:before {
+    content: attr(data-clone);
+    position: absolute;
+    top: 100%;
+    right: 0px;
+    left: 0px;
+    display: block;
+    background-color: white;
+    background-image: -webkit-linear-gradient(top, #ddd, white);
+    background-image: -moz-linear-gradient(top, #ddd, white);
+    background-image: -ms-linear-gradient(top, #ddd, white);
+    background-image: -o-linear-gradient(top, #ddd, white);
+    background-image: linear-gradient(top, #ddd, white);
+    border-top: 2px solid rgba(0,0,0,0.2);
+    color: #333;
+}
+
+#rolling-nav a:hover {
+    margin-top: -50px;
+    margin-bottom: 1px;
+}
+
+.withBorder{
+    margin: 10px;
+    padding: 15px;
+    border: 2px solid steelblue;
+}
+
+legend.registrationForm {
+    width: inherit;
+    padding: 0 10px;
+    border:none;
+}
+
+
+#loginHTML {
+    display : none;
+}
+
+#profileHTML {
+    display : none;
+}
+
+#signupHTML {
+    display : none;
+}
+
+.thumbnail {
+    border: 3px solid #a94442 !important;
+}
+
+.caption {
+    color: black; !important;
+    background-image: url("text_b.jpg");
+    text-align:center;
+
+
+}
+#imgbot{
+    text-align:center;
+}
+
+#title {
+    color: black !important;
+    
+}

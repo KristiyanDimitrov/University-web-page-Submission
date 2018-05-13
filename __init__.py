@@ -1,0 +1,1 @@
+from .photo-junky import app

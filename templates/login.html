@@ -1,0 +1,88 @@
+<script>
+    $(document).ready(function () {
+        $("#logInForm").submit(function (e) {
+            e.preventDefault();
+            var data = {};
+            $("#logInForm").serializeArray().map(function (x) { data[x.name] = x.value; });
+
+            console.log("Data from logIn.html>>>>>>>>>" + data);
+            $("#result").empty();
+            $.ajax(
+                {
+                    type: "POST", 
+                    crossDomain: true,
+                    url: $("#logInForm").attr('action'), 
+                    contentType: 'application/json',
+                    data: JSON.stringify(data),
+                    success: function (responseData, textStatus, jqXHR) {
+                        console.log("RESPONSE DATAAAAAAAAAAAAAAAAAAAAAAAAAAAAAzzzzzzzzzzzzzzzz");
+                        console.log(responseData);
+                        //var datas = JSON.parse(responseData);
+                        console.log("-------------------")
+                        console.log(responseData);
+
+                        if (responseData == "falseU") {
+                            $("#result").html("<p style='color:red;'>Username does not exist!</p>");                 
+                        }else if (responseData == "falseP") {
+                            $("#result").html("<p style='color:red;'>Incorect password!</p>");
+                        } else {
+                            $("#result").html("<p style='color:green;'>Loged in! .</p>");
+                            // If Login is successful th username is stored in the localmemory of the browser                            
+                            console.log("Setting local storage variable account!");
+                            let username = data.user_Name;
+                            console.log(username);
+                            localStorage.setItem("account", username);
+                            let test = localStorage.getItem('account');  
+                            console.log("ACCCCCCCCC: " + test);
+                            $("#result").html("<p style='color:green;'>Loged in!</p > ");  
+                             
+                        }
+                        
+                        //Code to process the response
+
+                    }
+                    
+                });
+            return false;
+        });
+    });
+</script>
+
+
+<div class = "container">
+        <div class = "row justify-content-center">
+            <div class="col-12">
+                <form id="logInForm" class="form-horizontal col-sm-offset-2 col-sm-8" data-toggle="validator" role="form"
+                      action="http://localhost:8081/api/v1/user/logIn">
+                    <fieldset class="withBorder">
+                        <legend id="result"  class="registrationForm"><p>Sign in</p></legend>
+                        <div class="form-group has-feedback">
+                            <label for='inputEmail'>Username</label>
+                            <div class="input-group">
+                                <span class='input-group-addon'><i class="glyphicon glyphicon-user"></i></span>
+                                <input name="user_Name" type='text' class="form-control"  placeholder="Username must be atleast 6 characters"
+                                data-minlength="6" required>
+                                
+                            </div>
+                            <span class="glyphicon form-contol-feedback" aria-hidden="true"></span>
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        <div class="form-group has-feedback">
+                            <label for="inputPassword">Password</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                <input name="pass" type='password' class="form-control" id='pass' placeholder="Password must be atleast 6 characters"
+                                data-minlength="6" pattern="^[a-zA-Z0-9_.-]*$" required>
+                            </div>
+                            <span class="glyphicon form-contol-feedback" aria-hidden="true"></span>
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        
+                        <button onclick="logIn('true')" id="loginbutton"  type="submit" class="btn btn-primary">Sign in</button>
+                   
+                        
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,67 @@
+<script type="text/javascript" src="{{ url_for('static', filename='signup.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='check_user_ex.js') }}"></script>
+<div class = "container">
+    <div class = "row justify-content-center">
+        <div class="col-12">
+            <form id="signUpForm" class="form-horizontal col-sm-offset-2 col-sm-8" role="form" method="post" 
+                  datatoggle="validator" >
+                    <fieldset class="withBorder">
+                        <legend id="result" class="registrationForm"> Registration Form</legend>
+                        <div class="form-group has-feedback">
+                            <label for='inputEmail'>E_Mail</label>
+                            <div class="input-group col-sm-8">
+                                <span class='input-group-addon'><i class="glyphicon glyphicon-user"></i></span>
+                                <input name="eMail" type='text' class="form-control" id="inputEamail" placeholder="Email must be atleast 6 characters"
+                                       data-minlength="6" required>
+                            </div>
+                            <span class="glyphicon form-contol-feedback" aria-hidden="true"></span>
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        <div class="form-group has-feedback" id="check_user_ex" method="POST" action="http://localhost:8081/api/v1/user/check">
+                            <label for='inputUserName' name="userName">Username</label>
+                            <div class="input-group col-sm-8">
+                                <span class='input-group-addon'><i class="glyphicon glyphicon-user"></i></span>
+                                <input name="userName" type='text' class="form-control" id="inputUserName" placeholder="Username must be atleast 6 characters"
+                                       data-minlength="6" required>
+                            </div>
+                            <span class="glyphicon form-contol-feedback" aria-hidden="true"></span>
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        <div class="form-group has-feedback">
+                            <label for="inputPassword">Password</label>
+                            <div class="input-group col-sm-8">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                <input name="pass" type='password' class="form-control" id='inputPassword' placeholder="Password must be atleast 6 characters"
+                                       data-minlength="6" pattern="^[a-zA-Z0-9_.-]*$" required>
+                            </div>
+                            <span class="glyphicon form-contol-feedback" aria-hidden="true"></span>
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        <div class="form-group has-feedback">
+                            <lable force-refresh-images="inputPassword">Repeat Password</lable>
+                            <div class="input-group col-sm-8">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                <input type="password" class="form-control" id="inputPassword2" placeholder="Passwords must match"
+                                       data-minlength="6" pattern="^[a-zA-Z0-9_.-]*$" data-match='#inputPassword' required>
+                            </div>
+                            <span class="glyphicon form-contol-feedback" aria-hidden="true"></span>
+                            <div class="help-block with-errors"></div>
+                        </div>
+                        <div class="checkbox">
+                            <label><input type="checkbox" >I agree to terms and conditions</label>
+                        </div>
+                        <div class="form-group col-sm-8">
+                            <label for="purpose">Purpose of the Account</label>
+                            <select name="purpose" class="form-control" id="purpose" required>
+                                <option value="Contributer">Contributer</option>
+                                <option value="Reviewer">Reviewer</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-sm-8">
+                            <button id="Sign_In" href="{{ url_for('main_page') }}" onClick="imageType('all')" type="submit" class="btn btn-primary">Register</button>
+                        </div>
+                    </fieldset>
+                </form>
+        </div>
+    </div>
+</div>
